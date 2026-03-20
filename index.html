@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중1 과학 탐험대 | 과학 수업 랜딩페이지</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        // Tailwind config for dark mode
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#3b82f6',
+                            dark: '#60a5fa',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .glass-card {
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.2), transparent),
+                        radial-gradient(circle at bottom left, rgba(126, 34, 206, 0.2), transparent);
+        }
+
+        .dark .hero-gradient {
+            background: radial-gradient(circle at top right, rgba(30, 64, 175, 0.4), transparent),
+                        radial-gradient(circle at bottom left, rgba(88, 28, 135, 0.4), transparent);
+        }
+
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        #gas-particles div {
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 overflow-x-hidden">
+
+    <!-- Header / Navigation -->
+    <nav class="fixed w-full z-50 px-6 py-4 flex justify-between items-center glass-card bg-white/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800">
+        <div class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+            <i class="fas fa-atom mr-2"></i>중1 과학 탐험대
+        </div>
+        
+        <div class="hidden md:flex space-x-8 items-center">
+            <a href="#home" class="hover:text-blue-600 dark:hover:text-blue-400 transition font-medium">홈</a>
+            <a href="#curriculum" class="hover:text-blue-600 dark:hover:text-blue-400 transition font-medium">교과과정</a>
+            <a href="#lab" class="hover:text-blue-600 dark:hover:text-blue-400 transition font-medium">온라인 실험실</a>
+            
+            <!-- Dark Mode Toggle Button -->
+            <button id="theme-toggle" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:ring-2 ring-blue-500 transition-all">
+                <i id="theme-toggle-dark-icon" class="fas fa-moon hidden text-slate-400"></i>
+                <i id="theme-toggle-light-icon" class="fas fa-sun hidden text-yellow-500"></i>
+            </button>
+            
+            <button class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full text-sm font-bold transition shadow-lg shadow-blue-500/30">
+                수업 시작
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center hero-gradient pt-20">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <h2 class="text-blue-600 dark:text-blue-400 font-bold tracking-widest uppercase">2024학년도 1학기</h2>
+                <h1 class="text-5xl md:text-7xl font-bold leading-tight">
+                    세상을 보는 눈,<br><span class="text-blue-600 dark:text-blue-500">과학</span>으로 여는 미래
+                </h1>
+                <p class="text-slate-600 dark:text-slate-400 text-lg max-w-lg">
+                    눈에 보이지 않는 작은 원자부터 거대한 지구의 변화까지, 과학의 원리를 통해 우리가 사는 세상을 탐구해 봅시다.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#curriculum" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-700 transition shadow-xl shadow-blue-500/20">단원 보기</a>
+                    <a href="#lab" class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-8 py-3 rounded-lg font-bold hover:bg-slate-50 dark:hover:bg-slate-700 transition">가상 체험</a>
+                </div>
+            </div>
+            <div class="relative hidden md:block">
+                <div class="float-animation">
+                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=800" 
+                         alt="Science Lab" class="rounded-2xl shadow-2xl border-4 border-white dark:border-blue-500/30">
+                </div>
+                <div class="absolute -bottom-6 -left-6 glass-card bg-white/90 dark:bg-slate-800/90 p-6 rounded-xl border border-slate-200 dark:border-blue-500/50 shadow-xl">
+                    <p class="text-3xl font-bold text-blue-600 dark:text-blue-400">98%</p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-tighter">학생 흥미도 달성</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum Section -->
+    <section id="curriculum" class="py-24 bg-white dark:bg-slate-900 transition-colors">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">학습 대단원 탐구</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Unit 1 -->
+                <div class="glass-card bg-slate-50 dark:bg-slate-800/50 p-8 rounded-2xl group cursor-pointer border border-slate-200 dark:border-slate-700 hover:border-blue-500 shadow-sm" onclick="openModal('unit1')">
+                    <div class="w-16 h-16 bg-blue-100 dark:bg-blue-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-500 transition">
+                        <i class="fas fa-globe-asia text-2xl text-blue-600 dark:text-blue-400 group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">I. 지권의 변화</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">지구 내부 구조와 암석, 대륙 이동설에 대해 알아봅니다.</p>
+                    <span class="text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-widest">3개 소단원</span>
+                </div>
+
+                <!-- Unit 2 -->
+                <div class="glass-card bg-slate-50 dark:bg-slate-800/50 p-8 rounded-2xl group cursor-pointer border border-slate-200 dark:border-slate-700 hover:border-purple-500 shadow-sm" onclick="openModal('unit2')">
+                    <div class="w-16 h-16 bg-purple-100 dark:bg-purple-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-500 transition">
+                        <i class="fas fa-weight-hanging text-2xl text-purple-600 dark:text-purple-400 group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">II. 여러 가지 힘</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">중력, 탄성력, 마찰력, 부력의 특징을 탐구합니다.</p>
+                    <span class="text-purple-600 dark:text-purple-400 text-xs font-bold uppercase tracking-widest">4개 소단원</span>
+                </div>
+
+                <!-- Unit 3 -->
+                <div class="glass-card bg-slate-50 dark:bg-slate-800/50 p-8 rounded-2xl group cursor-pointer border border-slate-200 dark:border-slate-700 hover:border-green-500 shadow-sm" onclick="openModal('unit3')">
+                    <div class="w-16 h-16 bg-green-100 dark:bg-green-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-green-500 transition">
+                        <i class="fas fa-leaf text-2xl text-green-600 dark:text-green-400 group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">III. 생물의 다양성</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">생물 분류 체계와 생태계 보존의 중요성을 배웁니다.</p>
+                    <span class="text-green-600 dark:text-green-400 text-xs font-bold uppercase tracking-widest">2개 소단원</span>
+                </div>
+
+                <!-- Unit 4 -->
+                <div class="glass-card bg-slate-50 dark:bg-slate-800/50 p-8 rounded-2xl group cursor-pointer border border-slate-200 dark:border-slate-700 hover:border-yellow-500 shadow-sm" onclick="openModal('unit4')">
+                    <div class="w-16 h-16 bg-yellow-100 dark:bg-yellow-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-yellow-500 transition">
+                        <i class="fas fa-wind text-2xl text-yellow-600 dark:text-yellow-400 group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">IV. 기체의 성질</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">입자의 운동과 보일 법칙, 샤를 법칙을 실험합니다.</p>
+                    <span class="text-yellow-600 dark:text-yellow-400 text-xs font-bold uppercase tracking-widest">3개 소단원</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lab Section -->
+    <section id="lab" class="py-24 bg-slate-50 dark:bg-slate-950 transition-colors">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/2 space-y-6">
+                    <h2 class="text-4xl font-bold leading-tight italic font-serif">"직접 해보며 깨닫는 과학"</h2>
+                    <p class="text-slate-600 dark:text-slate-400">
+                        가상 실험실을 통해 복잡한 원리를 눈으로 확인해 보세요. 기체의 온도 변화에 따른 부피 변화를 직접 조절하며 샤를 법칙을 이해할 수 있습니다.
+                    </p>
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-xl border-l-4 border-blue-500 shadow-md">
+                        <h4 class="font-bold text-blue-600 dark:text-blue-400 mb-2">오늘의 미션</h4>
+                        <p class="text-sm">기구 속의 기체를 가열하여 하늘 높이 띄워보세요!</p>
+                    </div>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-bold transition shadow-lg">실험실 입장하기</button>
+                </div>
+                <div class="md:w-1/2 w-full h-80 glass-card bg-white dark:bg-slate-900 rounded-3xl flex flex-col items-center justify-center relative overflow-hidden border border-slate-200 dark:border-slate-700 shadow-2xl">
+                    <div id="gas-particles" class="absolute inset-0 p-4"></div>
+                    <div class="z-10 text-center">
+                        <div id="balloon" class="w-20 h-24 bg-red-500 rounded-full mx-auto relative transition-all duration-1000 ease-out shadow-xl">
+                            <div class="w-1 h-4 bg-slate-400 dark:bg-slate-300 mx-auto absolute -bottom-4 left-1/2 -translate-x-1/2"></div>
+                            <div class="w-4 h-4 bg-amber-900 mx-auto absolute -bottom-8 left-1/2 -translate-x-1/2 rounded-sm"></div>
+                        </div>
+                        <div class="mt-20 flex flex-col space-y-4 items-center justify-center">
+                            <div class="flex items-center space-x-4">
+                                <i class="fas fa-temperature-low text-blue-500"></i>
+                                <input type="range" min="20" max="100" value="20" class="w-32 h-2 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-orange-500" id="heatSlider">
+                                <i class="fas fa-temperature-high text-red-500"></i>
+                            </div>
+                            <label class="text-xs uppercase font-bold text-slate-500 dark:text-slate-400">온도 조절 장치</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-slate-500 text-sm">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-graduation-cap"></i>
+                <span>행복한 중학교 과학교실 | 담당 교사: 홍길동</span>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-blue-600 dark:hover:text-white transition">개인정보처리방침</a>
+                <a href="#" class="hover:text-blue-600 dark:hover:text-white transition">수업문의</a>
+                <a href="#" class="hover:text-blue-600 dark:hover:text-white transition">디지털 교과서</a>
+            </div>
+            <p>© 2024 Science Lab. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Simple Modal -->
+    <div id="modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] hidden items-center justify-center p-6">
+        <div class="bg-white dark:bg-slate-900 w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-700">
+            <div class="p-6 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center">
+                <h3 id="modalTitle" class="text-2xl font-bold">단원 상세보기</h3>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-white p-2"><i class="fas fa-times text-xl"></i></button>
+            </div>
+            <div class="p-8 space-y-4" id="modalBody">
+                <!-- Content injected by JS -->
+            </div>
+            <div class="p-6 bg-slate-50 dark:bg-slate-800/50 text-right">
+                <button onclick="closeModal()" class="px-6 py-2 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-white rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition">닫기</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+        // Check for saved theme or system preference
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            lightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            darkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            // Toggle icons
+            darkIcon.classList.toggle('hidden');
+            lightIcon.classList.toggle('hidden');
+
+            // Toggle theme
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        });
+
+        // Modal Data & Logic
+        const unitData = {
+            unit1: {
+                title: "I. 지권의 변화",
+                content: `
+                    <ul class="space-y-4 text-slate-600 dark:text-slate-300">
+                        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-blue-500 mt-1"></i> <strong>지구계와 지권의 구조:</strong> 지구 내부를 조사하는 방법과 층상 구조</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-blue-500 mt-1"></i> <strong>지각의 구성:</strong> 암석의 종류(화성암, 퇴적암, 변성암)와 광물</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-blue-500 mt-1"></i> <strong>지각의 변동:</strong> 대륙 이동설에서 판 구조론까지</li>
+                    </ul>
+                `
+            },
+            unit2: {
+                title: "II. 여러 가지 힘",
+                content: `
+                    <ul class="space-y-4 text-slate-600 dark:text-slate-300">
+                        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-purple-500 mt-1"></i> <strong>중력과 탄성력:</strong> 질량과 무게의 차이, 용수철의 성질</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-purple-500 mt-1"></i> <strong>마찰력과 부력:</strong> 운동을 방해하는 힘과 물체에 작용하는 부력</li>
+                    </ul>
+                `
+            },
+            unit3: {
+                title: "III. 생물의 다양성",
+                content: `
+                    <ul class="space-y-4 text-slate-600 dark:text-slate-300">
+                        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i> <strong>생물 다양성:</strong> 생물종의 다양성과 변이의 중요성</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1"></i> <strong>생물의 분류:</strong> 종, 속, 과, 목, 강, 문, 계의 분류 체계</li>
+                    </ul>
+                `
+            },
+            unit4: {
+                title: "IV. 기체의 성질",
+                content: `
+                    <ul class="space-y-4 text-slate-600 dark:text-slate-300">
+                        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-yellow-600 dark:text-yellow-500 mt-1"></i> <strong>입자의 운동:</strong> 증발과 확산 현상을 통한 입자 모델 이해</li>
+                        <li class="flex items-start gap-3"><i class="fas fa-check-circle text-yellow-600 dark:text-yellow-500 mt-1"></i> <strong>압력과 온도에 따른 부피 변화:</strong> 보일 법칙과 샤를 법칙</li>
+                    </ul>
+                `
+            }
+        };
+
+        function openModal(id) {
+            const data = unitData[id];
+            document.getElementById('modalTitle').innerText = data.title;
+            document.getElementById('modalBody').innerHTML = data.content;
+            document.getElementById('modal').style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Lab Simulation Logic
+        const slider = document.getElementById('heatSlider');
+        const balloon = document.getElementById('balloon');
+        const container = document.getElementById('gas-particles');
+
+        // Particle generation
+        for(let i=0; i<30; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'absolute bg-blue-400 dark:bg-white/40 rounded-full transition-all duration-300';
+            dot.style.width = '4px';
+            dot.style.height = '4px';
+            dot.style.left = Math.random() * 100 + '%';
+            dot.style.top = Math.random() * 100 + '%';
+            container.appendChild(dot);
+            
+            // Random movement based on slider value
+            setInterval(() => {
+                const intensity = (slider.value / 10);
+                const x = (Math.random() - 0.5) * intensity * 10;
+                const y = (Math.random() - 0.5) * intensity * 10;
+                dot.style.transform = `translate(${x}px, ${y}px)`;
+            }, 100);
+        }
+
+        slider.addEventListener('input', (e) => {
+            const val = e.target.value;
+            const translateY = -(val - 20) * 1.8;
+            const scale = 1 + (val - 20) / 150;
+            balloon.style.transform = `translateY(${translateY}px) scale(${scale})`;
+            
+            // Heat visual feedback
+            const opacity = (val - 20) / 80;
+            container.style.backgroundColor = `rgba(239, 68, 68, ${opacity * 0.1})`;
+        });
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target == modal) closeModal();
+        }
+    </script>
+</body>
+</html>
